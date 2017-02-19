@@ -7,5 +7,6 @@ class User < ApplicationRecord
 
   validates :last_name, :first_name, :username, :email, presence: true
   validates :email, :username, uniqueness: true
+  validates_format_of :email, with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
 end

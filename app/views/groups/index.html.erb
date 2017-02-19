@@ -1,0 +1,16 @@
+<h1>Group Directory</h1> 
+<%= link_to "Logout", "/logout", method: :delete %>
+<% @groups.each do |group|%>
+  <div>
+  <h2><%= group.name %></h2>
+  <h3>Members</h3>
+    <p><% group.users.each do |user| %></p>
+      <p><%= user.email %></p>
+    <% end %>
+    <h3>Categories</h3>
+    <p><% group.categories.each do|category| %></p>
+      <p><%= category.name %></p>
+      <input type="checkbox" name="<%= category.name %>" value="<%= category.id %>">
+    <% end %>
+  </div>
+<% end %>

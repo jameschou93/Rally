@@ -1,0 +1,11 @@
+<h1>New Group</h1>
+<%= form_tag "/groups", method: :post do %>
+<p>Name <input type="text" name="group_name"></p>
+
+<p>Categories</p>
+<% @categories.each do |category| %>
+<%= category.name %><input type="checkbox" name="group_categories[category_ids][]" value="<%= category.id %>">
+<br>
+<% end %>
+<p><input type="submit" value="Create"></p>
+<% end %>
