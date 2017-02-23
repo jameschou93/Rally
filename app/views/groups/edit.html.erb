@@ -1,0 +1,15 @@
+<%= form_tag "/groups/#{@group.id}", method: :patch do %>
+  <input type="text" name="name">
+  <input type="submit" value="Change">
+  <p>Categories</p>
+<% @categories.each do |category| %>
+  <%= category.name %>
+  <input type="checkbox"
+         name="group_categories[category_ids][]"
+         value="<%= category.id %>"
+         <%= "checked" if @group.categories.include?(category) %>
+  >
+<br>
+<% end %>
+<p><input type="submit" value="Create"></p>
+<% end %>

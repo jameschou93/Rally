@@ -1,4 +1,14 @@
 <h1><%= @group.name %></h1>
+
+<br>
+
+<h2>Category</h2>
+<% @group.categories.each do |category| %>
+<p><%= category.name %></p>
+<% end %>
+
+<br>
+
 <h2>Members</h2>
 <% @group.users.each do |user| %>
 <p>First Name <%= user.first_name %></p>

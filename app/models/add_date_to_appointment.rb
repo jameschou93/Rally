@@ -1,2 +1,0 @@
-class AddDateToAppointment < ApplicationRecord
-end

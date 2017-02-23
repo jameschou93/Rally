@@ -1,0 +1,11 @@
+<h1>Appointments</h1>
+<% @appointments.each do |appointment|%>
+  <div>
+    <p>Title: <%= appointment.title %></p>
+    <p>Location: <%= appointment.location.address%></p>
+    <p><%= appointment.location.city%></p>
+    <p><%= appointment.location.state%></p>
+    <p><%= appointment.location.zip_code%></p>
+    <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
+  </div>
+  <% end %>

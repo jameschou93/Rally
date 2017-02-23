@@ -12,5 +12,12 @@ Rails.application.routes.draw do
   get '/groups/new', to: 'groups#new'
   get '/groups/:id', to: 'groups#show'
   post '/groups', to: 'groups#create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/groups/:id/edit', to: 'groups#edit'
+  patch '/groups/:id', to: 'groups#update'
+  delete '/groups/:id', to: 'group#destroy'
+
+  # appointments
+  get '/appointments', to:'appointments#index'
+  get '/appointments/new', to: 'appointment#new'
+  post '/appointments', to: 'appointments#create'
 end
