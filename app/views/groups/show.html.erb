@@ -1,5 +1,9 @@
 <h1><%= @group.name %></h1>
-
+<% if current_user %>
+  <%= form_tag "/group_member/#{@group.id}", method: :post do %>
+  <input type="submit" value="Join">
+  <% end %>
+<% end %>
 <br>
 
 <h2>Category</h2>

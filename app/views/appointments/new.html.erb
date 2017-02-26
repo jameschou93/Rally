@@ -2,11 +2,14 @@
 
 <br>
 
-<%= form_tag "/appointments", method: post: do %>
+<%= form_tag "/appointments", method: :post do %>
 <p>Title <input type="text" name="title"></p>
 <p>Date: <input type="date" name="date"> </p>
 <p>Start Time: <input type="time" name="start_time"> </p>
 <p>End Time: <input type="time" name="end_time"> </p>
-<p>End Time: <input type="time" name="end_time"> </p>
-<p>Invitees(example: [1,7,212]) <input type="text" name="user_ids"> </p>
+<p>Location:</p>
+<%= select_tag 'location', options_for_select(Location.all.collect {|p| [ "#{p.address}, #{p.city}, #{p.state} #{p.zip_code}", p.id ] }), { multiple: false, id: "location" } %>
+<p>Invitees</p>
+<%= select_tag '[user_ids][]', options_for_select(User.all.collect {|p| [ p.first_name, p.id ] }), { multiple: true, id: "user" } %>
+<input type="submit" value="Create Appointment">
 <% end %>

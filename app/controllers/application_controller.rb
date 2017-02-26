@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
+    def authenticate!
+      redirect_to "/" unless current_user
+    end
+
+
 end

@@ -2,15 +2,16 @@
 <%= link_to "Logout", "/logout", method: :delete %>
 <% @groups.each do |group|%>
   <div>
-  <h2><%= group.name %></h2>
+  <% if group.users.include?(current_user) %>
+  <h2><%= link_to group.name, "/groups/#{group.id}" %></h2>
   <h3>Members</h3>
     <p><% group.users.each do |user| %></p>
-      <p><%= user.email %></p>
+    <p><%= user.email %></p>
     <% end %>
     <h3>Categories</h3>
     <p><% group.categories.each do|category| %></p>
-      <p><%= category.name %></p>
-      <input type="checkbox" name="<%= category.name %>" value="<%= category.id %>">
-    <% end %>
+    <p><%= category.name %></p>
+  <% end %>
+<% end %>
   </div>
 <% end %>

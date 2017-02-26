@@ -1,10 +1,15 @@
 class GroupsController < ApplicationController
+  before_action :authenticate!, except: [:index, :show]
+  
   def index
     @groups = Group.all
   end
 
   def show
     @group = Group.find_by(id: params[:id])
+    if @group.users.include?(current_user) == false
+      redirect_to "/groups"
+    end
   end
 
   def new
@@ -53,6 +58,13 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    
+    group = Group.find_by(id: params[:id])
+    group.delete
+  end
+
+  def add_member
+    group = Group.find_by(id: params[:id])
+    UserGroup.create(group_id: params[:id], user_id: current_user.id)
+    redirect_to "/groups/#{group.id}"
   end
 end
