@@ -1,17 +1,32 @@
 <h1>Group Directory</h1> 
-<%= link_to "Logout", "/logout", method: :delete %>
 <% @groups.each do |group|%>
   <div>
-  <% if group.users.include?(current_user) %>
-  <h2><%= link_to group.name, "/groups/#{group.id}" %></h2>
-  <h3>Members</h3>
-    <p><% group.users.each do |user| %></p>
-    <p><%= user.email %></p>
+  <% if group.private? %>
+    <% if group.users.include?(current_user) %>
+      <h2><%= link_to group.name, "/groups/#{group.id}" %></h2>
+      <p> <%= group.bio %></p>
+        <h3>Members</h3>
+      <p><% group.users.each do |user| %></p>
+          <p><%= user.email %></p>
+          <% end %>
+          <h3>Categories</h3>
+          <p><% group.categories.each do|category| %></p>
+          <p><%= category.name %></p>
+      <% end %>
+    <% else %>
+    <p>Cannot View Private Group</p>
     <% end %>
-    <h3>Categories</h3>
-    <p><% group.categories.each do|category| %></p>
-    <p><%= category.name %></p>
+  <% else %>
+    <h2><%= link_to group.name, "/groups/#{group.id}" %></h2>
+      <p> <%= group.bio %></p>
+        <h3>Members</h3>
+      <p><% group.users.each do |user| %></p>
+          <p><%= user.email %></p>
+          <% end %>
+          <h3>Categories</h3>
+          <p><% group.categories.each do|category| %></p>
+          <p><%= category.name %></p>
+      <% end %>
   <% end %>
-<% end %>
   </div>
 <% end %>
