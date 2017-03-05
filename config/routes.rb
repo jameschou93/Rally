@@ -22,4 +22,10 @@ Rails.application.routes.draw do
   get '/appointments', to:'appointments#index'
   get '/appointments/new', to: 'appointments#new'
   post '/appointments', to: 'appointments#create'
+
+#   namespace :api do
+#     namespace :v1 do
+#   get '/groups'
+#     end
+#   end
 end

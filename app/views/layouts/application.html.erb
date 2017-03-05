@@ -53,6 +53,7 @@
   <div class="alert alert-<%= name %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <%= message %>
+  <% end %>
   </div>
 
   <body class="login">
@@ -180,7 +181,7 @@
       <!-- Search ends -->
     </header>
 
-<% end %>
+
       
   <div class="container-fluid">
     <% if request.original_fullpath != login_path %>
@@ -203,29 +204,13 @@
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Color Themes <span class="label label-danger">5</span>
+                  Appointments <span class="label label-danger">5</span>
                 </a>
               </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
-                <ul class="color-theme" id="themeOptions">
-                  <li>
-                    <a href="javascript:void(0)" class="theme-instagram" data-theme="theme-instagram"></a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="theme-green" data-theme="theme-green"></a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="theme-facebook" data-theme="theme-facebook"></a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="theme-brown" data-theme="theme-brown"></a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="theme-grey" data-theme="theme-grey"></a>
-                  </li>
-                </ul>
+                <a href="/appointments"> My Appointments</a>
               </div>
             </div>
           </div>
@@ -233,44 +218,13 @@
             <div class="panel-heading" role="tab" id="headingTwo">
               <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  Online <span class="label label-warning">35</span>
+                  Groups <span class="label label-warning">35</span>
                 </a>
               </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
-                <ul class="online-users">
-                  <li>
-                    <a href="#" data-status="online" data-original-title="">
-                      <span>Carlos Slim</span>
-                      <div class="online"></div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-status="online" data-original-title="">
-                      <span>Elon Musk</span>
-                      <div class="online"></div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-status="online" data-original-title="">
-                      <span>Angela Merkel</span>
-                      <div class="busy"></div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-status="online" data-original-title="">
-                      <span>Christine</span>
-                      <div class="busy"></div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-status="online" data-original-title="">
-                      <span>Ali Khamenei</span>
-                      <div class="away"></div>
-                    </a>
-                  </li>
-                </ul>
+              <a href="/groups">All Groups</a>
               </div>
             </div>
           </div>
@@ -278,7 +232,7 @@
             <div class="panel-heading" role="tab" id="headingThree">
               <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Team <span class="label label-success">10</span>
+                  Map <span class="label label-success">10</span>
                 </a>
               </h4>
             </div>

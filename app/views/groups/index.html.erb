@@ -4,6 +4,7 @@
     <div ng-controller="groupsCtrl">
       <% if group.private? %>
         <% if group.users.include?(current_user) %>
+        <div class="well">
           <h2><%= link_to group.name, "/groups/#{group.id}" %></h2>
           <p> <%= group.bio %></p>
             <h3>Members</h3>
@@ -12,7 +13,8 @@
               <% end %>
               <h3>Categories</h3>
               <p><% group.categories.each do|category| %></p>
-              <p><%= category.name %></p>
+              <p><%= category.name %></p>         
+        </div>
           <% end %>
         <% else %>
         <p>Cannot View Private Group</p>

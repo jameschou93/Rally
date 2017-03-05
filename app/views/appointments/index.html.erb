@@ -10,3 +10,7 @@
     <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
   </div>
   <% end %>
+
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
