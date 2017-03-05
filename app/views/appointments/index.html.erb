@@ -1,5 +1,9 @@
 <h1>Appointments</h1>
 <%= link_to "New Appointment", "/appointments/new" %>
+
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
 <% @appointments.each do |appointment|%>
   <div>
     <p>Title: <%= appointment.title %></p>
@@ -10,7 +14,5 @@
     <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
   </div>
   <% end %>
-
-<%= month_calendar do |date| %>
-  <%= date %>
+<br>
 <% end %>

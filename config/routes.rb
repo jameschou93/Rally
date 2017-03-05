@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   #group
   get '/groups', to: 'groups#index'
+  get '/ang_groups', to: 'groups#ang_index'
   get '/groups/new', to: 'groups#new'
   get '/groups/:id', to: 'groups#show'
   post '/groups', to: 'groups#create'
@@ -20,12 +21,18 @@ Rails.application.routes.draw do
 
   # appointments
   get '/appointments', to:'appointments#index'
+  get '/ang_appointments', to:'appointments#ang_index'
   get '/appointments/new', to: 'appointments#new'
   post '/appointments', to: 'appointments#create'
 
-#   namespace :api do
-#     namespace :v1 do
-#   get '/groups'
-#     end
-#   end
+  # user
+  get '/users', to: 'users#index'
+
+  namespace :api do
+    namespace :v1 do
+  get '/groups', to: 'groups#index'
+  get '/appointments', to:'appointments#index'
+  get '/users', to:'users#index'
+    end
+  end
 end

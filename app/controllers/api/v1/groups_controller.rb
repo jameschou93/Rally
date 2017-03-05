@@ -1,15 +1,12 @@
-class GroupsController < ApplicationController
-  
+class Api::V1::GroupsController < ApplicationController
+  before_action :current_user
   before_action :authenticate!, except: [:index, :show]
   
   def index
     @groups = Group.all
+    render "index.json.jbuilder"
   end
 
-  def ang_index
-    @groups = Group.all
-  end
- 
   def show
     @group = Group.find_by(id: params[:id])
     if @group.users.include?(current_user) == false

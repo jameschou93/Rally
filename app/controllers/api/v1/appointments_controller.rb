@@ -1,12 +1,9 @@
-class AppointmentsController < ApplicationController
+class Api::V1::AppointmentsController < ApplicationController
   before_action :today
   before_action :authenticate!
   def index
     @appointments = current_user.appointments
-  end
-
-  def ang_index
-    render"ang_appointments.html.erb"
+    render"index.json.jbuilder"
   end
 
   def new

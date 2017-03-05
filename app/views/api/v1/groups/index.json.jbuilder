@@ -1,13 +1,19 @@
-json.array! @meetings.each do |meeting|
-json.id meeting.id
-json.name meeting.name
-json.address meeting.address
-json.start_time meeting.start_time
-json.end_time meeting.end_time
-json.notes meeting.notes
-json.tags meeting.tags.each do |tag|
-  json.id tag.id
-  json.id tag.id
-  json.name tag.name
-  end
+json.array! @groups.each do |group|
+json.id group.id
+json.name group.name
+json.bio group.bio
+json.private group.private?
+json.mygroup group.mygroup?(current_user)
+json.categories group.categories.each do |category|
+  json.id category.id
+  json.name category.name
+end
+json.members group.users.each do |user|
+json.id user.id
+json.first_name user.first_name
+json.last_name user.last_name
+json.username user.username
+json.email user.email
+end
+
 end

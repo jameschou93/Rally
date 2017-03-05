@@ -1,0 +1,12 @@
+<div ng-app="app">
+  <div ng-controller="appointmentsCtrl">
+  <%= month_calendar do |date| %>
+    <div ng-repeat="appointment in appointments">
+    
+    <%= date.day %>
+        {{appointment.title}}
+
+    </div>
+    <% end %>
+  </div>
+</div>
