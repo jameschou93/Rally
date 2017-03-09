@@ -9,6 +9,9 @@ class AppointmentsController < ApplicationController
     render"ang_appointments.html.erb"
   end
 
+  def show
+    
+  end
   def new
     
   end

@@ -2,11 +2,12 @@ class GroupsController < ApplicationController
   
   before_action :authenticate!, except: [:index, :show]
   
-  def index
+  def mygroups
     @groups = Group.all
+    render "ang_index.html"
   end
 
-  def ang_index
+  def index
     @groups = Group.all
   end
  

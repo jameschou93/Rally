@@ -9,6 +9,14 @@
     
     });
 
+    $scope.hide = function(div) {
+      if (div.style.display === "block") {
+        div.style.display = null;
+      } else {
+        div.style.display = "block"
+      }
+
+    };
 
 
   

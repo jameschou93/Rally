@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   #group
+  get '/mygroups', to: 'groups#mygroups'
   get '/groups', to: 'groups#index'
-  get '/ang_groups', to: 'groups#ang_index'
   get '/groups/new', to: 'groups#new'
   get '/groups/:id', to: 'groups#show'
   post '/groups', to: 'groups#create'
@@ -18,11 +18,14 @@ Rails.application.routes.draw do
   post '/group_member/:id', to: 'groups#add_member'
   patch '/groups/:id', to: 'groups#update'
   delete '/groups/:id', to: 'group#destroy'
+  #group angular
+    get '/ang_groups', to: 'groups#ang_index'
+
 
   # appointments
   get '/appointments', to:'appointments#index'
   get '/ang_appointments', to:'appointments#ang_index'
-  get '/appointments'
+  get '/appointments/:id', to: 'appointments#show'
   get '/appointments/new', to: 'appointments#new'
   post '/appointments', to: 'appointments#create'
 

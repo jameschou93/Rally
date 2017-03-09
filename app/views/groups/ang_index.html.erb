@@ -1,17 +1,16 @@
-<h1>Group Directory</h1> 
+<h1>My Groups</h1> 
 
   <div ng-app="app">
     <div ng-controller="groupsCtrl">
       <div ng-repeat="group in groups">
-         <div ng-if="group.mygroup">
-         <p><h2><a href="/groups/#{group.id}" title="">{{group.name}}</a></h2></p>
-         <p>{{group.bio}}</p>
-         <h3>Categories</h2>
-         <p ng-repeat="category in group.categories"> 
-         {{category.name}}</p>
-         </div>
+         <div class="well" ng-if="group.mygroup">
+         <p><h2><a href="/groups/{{group.id}}" title="">{{group.name}}</a></h2></p>
+           <p>{{group.bio}}</p>
+           <h3>Categories</h2>
+           <p ng-repeat="category in group.categories"> 
+           {{category.name}}</p>
 
-
+           </div>
        </div> 
     </div>
   </div>
