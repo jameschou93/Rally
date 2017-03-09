@@ -1,18 +1,23 @@
 <h1>Appointments</h1>
-<%= link_to "New Appointment", "/appointments/new" %>
+<button><%= link_to "New Appointment", "/appointments/new" %></button>
 
 
 <%= month_calendar do |date| %>
-  <%= date.day %>
+  
+  <%= date %>
 <% @appointments.each do |appointment|%>
-  <div>
-    <p>Title: <%= appointment.title %></p>
-    <p>Location: <%= appointment.location.address%></p>
-    <p><%= appointment.location.city%></p>
-    <p><%= appointment.location.state%></p>
-    <p><%= appointment.location.zip_code%></p>
-    <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
-  </div>
+  <% if appointment.formatted_date == date %>
+    <div>
+        <p>Title: <%= appointment.title %></p>
+        <p>Location: <%= appointment.location.address%></p>
+    <!--     <p><%= appointment.location.city%></p>
+        <p><%= appointment.location.state%></p>
+        <p><%= appointment.location.zip_code%></p> -->
+        <p>Date: <%= appointment.date %></p>
+        <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
+      </div>
   <% end %>
+<% end %>
+
 <br>
 <% end %>
