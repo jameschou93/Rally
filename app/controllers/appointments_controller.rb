@@ -10,12 +10,16 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    
+    @appointment = Appointment.find_by(id: params[:id])
   end
   def new
     
   end
 
+  def update 
+    appointment = Appointment.find_by(params[:id])
+    appointment.update(title: params[:title], date: params[:date], start_time: params[:start_time], end_time: params[:end_time], location_id: params[:location].to_i)
+  end
   def create
     appointment = Appointment.new(title: params[:title], date: params[:date], start_time: params[:start_time], end_time: params[:end_time], location_id: params[:location].to_i)
 

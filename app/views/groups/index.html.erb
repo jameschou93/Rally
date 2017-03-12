@@ -1,9 +1,9 @@
 <h1>Group Directory</h1> 
-<% @groups.each do |group|%>
   <div ng-app="app">
     <div ng-controller="groupsCtrl">
-      <div class="well" ng-repeat="group in groups">
-         <p><h2><a href="/groups/{{group.id}}" title="">{{group.name}}</a></h2></p>
+      Search: <input ng-model=" inputName">
+      <div class="well" ng-repeat="group in groups | filter:{name: inputName}">
+         <p><h2><a href="/groups/{{group.id}}">{{group.name}}</a></h2></p>
            <p>{{group.bio}}</p>
            <h3>Categories</h2>
            <p ng-repeat="category in group.categories"> 
@@ -11,4 +11,3 @@
       </div>
     </div>
   </div>
-<% end %>

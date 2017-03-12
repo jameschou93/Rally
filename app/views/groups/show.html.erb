@@ -4,8 +4,9 @@
   <input type="submit" value="Join">
   <% end %>
 <% end %>
+<p><button><%= link_to "Edit", "/groups/#{@group.id}/edit" %></button></p>
 <br>
-
+<p> <%= @group.bio %></p>
 <h2>Category</h2>
 <% @group.categories.each do |category| %>
 <p><%= category.name %></p>

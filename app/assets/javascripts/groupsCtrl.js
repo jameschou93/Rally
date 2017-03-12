@@ -9,6 +9,9 @@
     
     });
 
+    $scope.categories = ["education", "food", "technology", "fitness", "crafts", "fashion","exercise", "health", "alcohol", "carpentry", "astrology"];
+
+    
     $scope.hide = function(div) {
       if (div.style.display === "block") {
         div.style.display = null;
@@ -18,7 +21,7 @@
 
     };
 
-
+    window.$scope = $scope;
   
 
 

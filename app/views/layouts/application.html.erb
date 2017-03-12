@@ -44,7 +44,7 @@
     </script>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    
 
@@ -75,32 +75,32 @@
             <ul class="dropdown-menu imp-notify">
               <li>
                 <div class="thumb">
-                  <img src="/img/user7.png" alt="Admin Dashboard">
+                  
                 </div>
                 <div class="details">
-                  <strong>Wilson Kewis</strong>
-                  <p>The best dashboard design I have ever seen. Good luck with sales.</p>
-                  <small class="date">Today at 10:10 pm - 21.12.2016</small>
+                  <strong><%= current_user.appointments.first.title %></strong>
+                  <p><%= current_user.appointments.first.location.address %></p>
+                  <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%><small>
                 </div>
               </li>
               <li>
                 <div class="thumb">
-                  <img src="/img/user10.png" alt="Admin Dashboard">
+                  
                 </div>
                 <div class="details">
-                  <strong>Justin Mezzell</strong>
-                  <p>To keep your account secure, we need to revalidate your account.</p>
-                  <small class="date">3 days ago at 2:30 pm</small>
+                  <strong><%= current_user.appointments.second.title %></strong>
+                  <p><%= current_user.appointments.second.location.address %></p>
+                  <small class="date"><%= "#{current_user.appointments.second.date} #{current_user.appointments.second.start_time} #{current_user.appointments.second.end_time}"%><small>
                 </div>
               </li>
               <li>
                 <div class="thumb">
-                  <img src="/img/user6.png" alt="Admin Dashboard">
+                  
                 </div>
                 <div class="details">
-                  <strong>Shawn Ankith</strong>
-                  <p>Contact you via phone with support for recent purchases and product information.</p>
-                  <small class="date">7 days ago at 5:15 pm</small>
+                  <strong><%= current_user.appointments.first.title %></strong>
+                  <p><%= current_user.appointments.first.location.address %></p>
+                  <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%><small>
                 </div>
               </li>
             </ul>
@@ -226,6 +226,7 @@
               <div class="panel-body">
               <p><a href="/groups">Browse Groups</a></p>
               <p><a href="/mygroups">My Groups</a></p>
+              <p><a href="/groups/new">Create New Group</a></p>
               </div>
             </div>
           </div>

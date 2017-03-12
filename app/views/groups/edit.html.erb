@@ -1,6 +1,8 @@
 <%= form_tag "/groups/#{@group.id}", method: :patch do %>
-  <input type="text" name="name">
+  <input type="text" name="name" value= <%= @group.name %> >
   <input type="submit" value="Change">
+  <h2>Bio</h2>
+  <textarea name="bio"><%= @group.bio %></textarea>
   <p>Categories</p>
 <% @categories.each do |category| %>
   <%= category.name %>
@@ -11,5 +13,5 @@
   >
 <br>
 <% end %>
-<p><input type="submit" value="Create"></p>
+
 <% end %>

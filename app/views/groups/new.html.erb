@@ -1,10 +1,11 @@
 <h1>New Group</h1>
 <%= form_tag "/groups", method: :post do %>
+<p>Private? <input type="checkbox" name="private?"></p>
 <p>Name <input type="text" name="group_name"></p>
-
+<p>Bio <textarea name="bio">  </textarea></p>
 <p>Categories</p>
 <% @categories.each do |category| %>
-<%= category.name %><input type="checkbox" name="group_categories[category_ids][]" value="<%= category.id %>">
+<input type="checkbox" name="group_categories[category_ids][]" value="<%= category.id %>"><%= category.name %>
 <br>
 <% end %>
 <p><input type="submit" value="Create"></p>

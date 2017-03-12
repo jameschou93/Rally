@@ -4,10 +4,10 @@
 
 <%= month_calendar do |date| %>
   
-  <%= date %>
+  <%= date.day %>
 <% @appointments.each do |appointment|%>
   <% if appointment.formatted_date == date %>
-    <div>
+    <a href="/appointments/<%= appointment.id %>"><div>
         <p>Title: <%= appointment.title %></p>
         <p>Location: <%= appointment.location.address%></p>
     <!--     <p><%= appointment.location.city%></p>
@@ -16,6 +16,7 @@
         <p>Date: <%= appointment.date %></p>
         <p>Meeting Time: <%= "#{appointment.start_time} - #{appointment.end_time} "%></p>
       </div>
+      </a>
   <% end %>
 <% end %>
 

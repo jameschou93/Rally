@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(name: params[:group_name])
+    group = Group.new(name: params[:group_name], bio: params[:bio], private?: params[:private?])
     if group.save
       if params[:group_categories]
         params[:group_categories][:category_ids].each do |cat_id|
@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find_by(id: params[:id])
-    group.update(name: params[:name])
+    group.update(name: params[:name], bio: params[:bio])
 
     # delete all categories
     categories = GroupCategory.where(group_id: group.id)
