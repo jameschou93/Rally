@@ -28,15 +28,16 @@ Rails.application.routes.draw do
   get '/appointments/:id', to: 'appointments#show'
   get '/appointments/new', to: 'appointments#new'
   post '/appointments', to: 'appointments#create'
+  get '/map', to: 'appointments#map'
 
   # user
   get '/users', to: 'users#index'
 
   namespace :api do
     namespace :v1 do
-  get '/groups', to: 'groups#index'
-  get '/appointments', to:'appointments#index'
-  get '/users', to:'users#index'
+      get '/groups', to: 'groups#index'
+      get '/appointments', to:'appointments#index'
+      get '/users', to:'users#index'
     end
   end
 end

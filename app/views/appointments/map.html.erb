@@ -1,0 +1,20 @@
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+    <h3>My Google Maps Demo</h3>
+    <div ng-app="app">
+    <div ng-controller="mapCtrl">
+
+      <div id="map" ng-init="initMap"></div>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY&callback=initMap">
+      </script>
+
+    </div>
+    </div>
