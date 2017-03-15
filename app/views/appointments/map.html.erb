@@ -8,12 +8,12 @@
 
     <h3>My Google Maps Demo</h3>
     <div ng-app="app">
-    <div ng-controller="mapCtrl">
+    <div ng-controller="appointmentsCtrl">
 
-      <div id="map" ng-init="initMap"></div>
+      <div id="map" ng-init="mapIndex()"></div>
 
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY&callback=initMap">
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY">
       </script>
 
     </div>
