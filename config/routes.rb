@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get '/appointments', to:'appointments#index'
   get '/ang_appointments', to:'appointments#ang_index'
   get '/appointments/:id', to: 'appointments#show'
-  get '/appointments/new', to: 'appointments#new'
+  get '/appointments_n', to: 'appointments#new'
   post '/appointments', to: 'appointments#create'
   get '/map', to: 'appointments#map'
 

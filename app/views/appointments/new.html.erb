@@ -8,7 +8,10 @@
 <p>Start Time: <input type="time" name="start_time"> </p>
 <p>End Time: <input type="time" name="end_time"> </p>
 <p>Location:</p>
-<%= select_tag 'location', options_for_select(Location.all.collect {|p| [ "#{p.address}, #{p.city}, #{p.state} #{p.zip_code}", p.id ] }), { multiple: false, id: "location" } %>
+Address<input type="text" name="address">
+City<input type="text" name="city">
+State<input type="text" name="state">
+Zip Code<input type="text" name="zip_code">
 <p>Invitees</p>
 <%= select_tag '[user_ids][]', options_for_select(User.all.collect {|p| [ p.first_name, p.id ] }), { multiple: true, id: "user" } %>
 <input type="submit" value="Create Appointment">

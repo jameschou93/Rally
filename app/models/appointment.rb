@@ -12,4 +12,5 @@ class Appointment < ApplicationRecord
     Date.new(year,month,day)
   end
 
+
 end
