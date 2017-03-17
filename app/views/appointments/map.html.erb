@@ -8,13 +8,11 @@
 
     <h3>My Google Maps Demo</h3>
     <div ng-app="app">
-    <div ng-controller="appointmentsCtrl">
-
-      <div id="map" ng-init="mapIndex()"></div>
-
-      <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY">
-      </script>
-
-    </div>
+    <div ng-controller="appointmentsCtrl" ng-init="mapIndex()">
+        <div id="map">
+          <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY">
+          </script>
+        </div>
+      </div>
     </div>
