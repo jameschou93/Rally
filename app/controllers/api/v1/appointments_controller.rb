@@ -2,10 +2,10 @@ class Api::V1::AppointmentsController < ApplicationController
   before_action :today
   before_action :authenticate!
   def index
-    @appointments = current_user.appointments
+    @appointments = Appointment.all
     render"index.json.jbuilder"
   end
-
+ 
   def new
     
   end

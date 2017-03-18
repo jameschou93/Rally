@@ -6,7 +6,7 @@
   
   <%= date.day %>
 <% @appointments.each do |appointment|%>
-  <% if appointment.formatted_date == date %>
+  <% if appointment.formatted_date == date && appointment.users.include?(current_user) %>
     <a href="/appointments/<%= appointment.id %>"><div>
         <p>Title: <%= appointment.title %></p>
         <p>Location: <%= appointment.location.address%></p>
