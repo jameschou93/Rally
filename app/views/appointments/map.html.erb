@@ -9,8 +9,8 @@
     <h3>Meetup Radar</h3>
 
     <div ng-app="app">
-    <div ng-controller="appointmentsCtrl" ng-init="mapIndex()">
-    <input type="date" name="dateFilter" ng-model="dateFilter" value="2017-03-17">
+    <div ng-controller="mapCtrl" ng-init="mapIndex()">
+    <input type="date" name="dateFilter" ng-model="dateFilter" >
     <button ng-click="mapIndex()"></button>
         <div id="map">
           <script
