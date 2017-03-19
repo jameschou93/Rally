@@ -6,9 +6,12 @@
        }
     </style>
 
-    <h3>My Google Maps Demo</h3>
+    <h3>Meetup Radar</h3>
+
     <div ng-app="app">
     <div ng-controller="appointmentsCtrl" ng-init="mapIndex()">
+    <input type="date" name="dateFilter" ng-model="dateFilter" value="2017-03-17">
+    <button ng-click="mapIndex()"></button>
         <div id="map">
           <script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY">
