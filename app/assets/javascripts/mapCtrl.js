@@ -10,8 +10,8 @@
       });
     };
 
-    $scope.date = $filter("date")('yyyy-MM-dd');
-    $scope.dateFilter = Date.now;
+    $scope.date = $filter("date")(Date.now(), 'yyyy-MM-dd');
+    $scope.dateFilter = new Date;
     $scope.mapIndex = function() {
       $http.get("/api/v1/appointments.json").then(function(response) {
         console.log(response.data);
@@ -21,17 +21,13 @@
           zoom: 12,
           center: {lat: 40.7091841, lng: -74.0122789}
         });
-        // var year = $scope.dateFilter.getFullYear().toString();
-        // console.log(year);
-        // var month = ($scope.dateFilter.getUTCMonth() + 1).toString();
-        // console.log(month);
-        // var date = $scope.dateFilter.getUTCDate().toString();
-        // console.log(date);
-        // var mydate = year + "-" + month + "-" + date;
+        var year = $scope.dateFilter.getFullYear().toString();
+        var month = ($scope.dateFilter.getUTCMonth() + 1).toString();
+        var date = $scope.dateFilter.getUTCDate().toString();
+        var mydate = year + "-" + '0' + month + "-" + date;
         $scope.appointments.forEach(function(appointment) {
-          // console.log(mydate);
-          var coords = { lat: appointment.latitude, lng: appointment.longitude };          
-          if (appointment.date === "2017-03-17") {
+          var coords = { lat: appointment.latitude, lng: appointment.longitude };         
+          if (appointment.date === mydate) {
             var marker = new google.maps.Marker({
               position: coords,
               map: map

@@ -78,6 +78,7 @@
                   
                 </div>
                 <div class="details">
+                <% if current_user.appointments ==! nil%>
                   <strong><%= current_user.appointments.first.title %></strong>
                   <p><%= current_user.appointments.first.location.address %></p>
                   <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%></small>
@@ -105,6 +106,7 @@
               </li>
             </ul>
           </li>
+          <% end %>
           <li class="list-box dropdown">
             <a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <span class="info-label">4</span>

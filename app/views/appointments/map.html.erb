@@ -10,8 +10,8 @@
 
     <div ng-app="app">
     <div ng-controller="mapCtrl" ng-init="mapIndex()">
-    <input type="date" name="dateFilter" ng-model="dateFilter" >
-    <button ng-click="mapIndex()"></button>
+    <input type="date" name="dateFilter" ng-model="dateFilter" value={{date}}>
+    <button ng-click="mapIndex()">Search</button>
         <div id="map">
           <script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEaMIRxf3lBdpTcdDKT_RaN6jZWQjehWY">
