@@ -2,14 +2,15 @@ class Api::V1::AppointmentsController < ApplicationController
   before_action :today
   before_action :authenticate!
   def index
-    if current_user
-    @appointments = current_user.appointments
-    else
     @appointments = Appointment.all
-    end
     render"index.json.jbuilder"
   end
- 
+
+  def myappointments
+    @appointments = current_user.appointments
+    render "myappointments.json.jbuilder"
+  end
+
   def new
     
   end

@@ -1,9 +1,18 @@
 <div ng-app="app">
   <div ng-controller="appointmentsCtrl" ng-init="setup()">
   <%= month_calendar do |date| %>
-    <%= date.day %>
+    <%= date %>
     <div ng-repeat="appointment in appointments">
+    {{appointment.start_time}}
+    <br>
+    <%= date %>
+    {{appointment.date}}
+    {{appointment.date.String() == <%= date.to_s %>}}
+      <div ng-if="appointment.date != <%= date %>">
         {{appointment.title}}
+        
+      </div>
+
 
     </div>
     <% end %>

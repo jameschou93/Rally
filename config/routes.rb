@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/groups', to: 'groups#index'
       get '/appointments', to:'appointments#index'
+      get '/myappointments', to:'appointments#myappointments'
       get '/users', to:'users#index'
     end
   end
