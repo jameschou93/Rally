@@ -1,9 +1,8 @@
 <div ng-app="app">
   <div ng-controller="appointmentsCtrl" ng-init="setup()">
   <%= month_calendar do |date| %>
-    <div ng-repeat="appointment in appointments">
-    
     <%= date.day %>
+    <div ng-repeat="appointment in appointments">
         {{appointment.title}}
 
     </div>

@@ -2,11 +2,11 @@ class AppointmentsController < ApplicationController
   before_action :today
   before_action :authenticate!
   def index
-    @appointments = current_user.appointments
+    render"ang_appointments.html.erb"
   end
 
   def ang_index
-    render"ang_appointments.html.erb"
+    
   end
 
   def show
