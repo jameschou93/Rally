@@ -4,7 +4,9 @@
   <input type="submit" value="Join">
   <% end %>
 <% end %>
+<% if @admin == true %>
 <p><button><%= link_to "Edit", "/groups/#{@group.id}/edit" %></button></p>
+<% end %>
 <br>
 <p> <%= @group.bio %></p>
 <h2>Category</h2>

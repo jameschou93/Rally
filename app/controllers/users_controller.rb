@@ -12,7 +12,7 @@ class UsersController < ApplicationController
                        username: params[:username])
     if user.save
       flash[:success] = "New User Created"
-    redirect_to "/signin"
+    redirect_to "/login"
     elsif user.errors.any?
       flash[:error]= "#{user.errors.full_messages.first}"
       redirect_to "/signup"
