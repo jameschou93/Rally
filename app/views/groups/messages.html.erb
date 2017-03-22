@@ -6,10 +6,12 @@
 
     <% if current_user %>
       <div>
+     <form ng-submit="createNewMessage(newMessageBody, <%= current_user.id %>, <%= @group.id %>)">
         <label for="body">New message: </label>
         <input type="text" id="body" name="body" ng-model="newMessageBody">
-        <input type="submit" ng-click="createNewMessage(newMessageBody, <%= current_user.id %>, <%= @group.id %>)">
+        <input type="submit">
       </div>
+      </form>
     <% else %>
       <br />
       <div><a href="/login">Log in</a> to submit a new message!</div>
