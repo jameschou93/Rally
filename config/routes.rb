@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  #actioncable
+  mount ActionCable.server => "/cable"
+    resources :messages, only: [:index, :create]
+  resources :chatrooms, only: [:show, :create]
+
+
   # login
   root to:'sessions#new'
   get '/login', to: 'sessions#new'
@@ -35,6 +41,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :messages, only: [:index, :create]
       get '/groups', to: 'groups#index'
       get '/appointments', to:'appointments#index'
       get '/myappointments', to:'appointments#myappointments'

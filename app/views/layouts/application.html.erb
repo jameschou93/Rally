@@ -73,40 +73,21 @@
               <i class="icon-calendar2 info-icon text-success"></i>
             </a>
             <ul class="dropdown-menu imp-notify">
+            <% if current_user %>
+            <% current_user.appointments[0..2].each do |appointment| %>
               <li>
-                <div class="thumb">
-                  
-                </div>
+
                 <div class="details">
-                <% if current_user.appointments ==! nil%>
-                  <strong><%= current_user.appointments.first.title %></strong>
-                  <p><%= current_user.appointments.first.location.address %></p>
-                  <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%></small>
+                  <strong><%= appointment.title %></strong>
+                  <p><%= appointment.location.address %></p>
+                  <small class="date"><%= "#{appointment.date} #{appointment.start_time} #{appointment.end_time}"%></small>
                 </div>
               </li>
-              <li>
-                <div class="thumb">
-                  
-                </div>
-                <div class="details">
-                  <strong><%= current_user.appointments.first.title %></strong>
-                  <p><%= current_user.appointments.first.location.address %></p>
-                  <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%></small>
-                </div>
-              </li>
-              <li>
-                <div class="thumb">
-                  
-                </div>
-                <div class="details">
-                  <strong><%= current_user.appointments.first.title %></strong>
-                  <p><%= current_user.appointments.first.location.address %></p>
-                  <small class="date"><%= "#{current_user.appointments.first.date} #{current_user.appointments.first.start_time} #{current_user.appointments.first.end_time}"%></small>
-                </div>
-              </li>
+              <% end %>
+              <% end %>
             </ul>
           </li>
-          <% end %>
+
           <li class="list-box dropdown">
             <a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <span class="info-label">4</span>
@@ -151,8 +132,10 @@
           </li>
           <li class="list-box user-admin dropdown">
             <div class="admin-details">
-              <div class="name">Anisha</div>
-              <div class="designation">System Admin</div>
+            <% if current_user %>
+              <div class="name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></div>
+              <% end %>
+              <div class="designation"></div>
             </div>
             <a id="drop4" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <i class="icon-account_circle"></i>
@@ -163,7 +146,7 @@
                 <a href="profile.html">Edit Profile</a>
                 <a href="forgot-pwd.html">Change Password</a>
                 <a href="profile.html">Settings</a>
-                <a href="/login">Logout</a>
+                <%= link_to "Logout", "/logout", method: :delete %>
               </li>
             </ul>
           </li>
@@ -196,7 +179,9 @@
           </div>
           <div class="profile-status">
             <p class="welcome">Welcome</p>
-            <p class="name">Anisha Willams</p>
+            <% if current_user %>
+            <p class="name"><%= current_user.first_name %></p>
+            <% end %>
           </div>
         </a>
         <!-- User wrapper ends -->
