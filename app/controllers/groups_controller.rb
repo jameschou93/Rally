@@ -25,6 +25,20 @@ class GroupsController < ApplicationController
     end
   end
 
+  def messages
+    @group = Group.find_by(id: params[:id])
+        if UserGroup.where(user_id: current_user.id, group_id: @group.id, admin: true) != []
+      @admin = true
+    else
+      @admin = false
+    end
+
+    if @group.private? && @group.users.include?(current_user) == false
+      redirect_to "/groups"
+    end
+    render 'messages.html.erb'
+  end
+
   def new
    @categories = Category.all
    @group = Group.new

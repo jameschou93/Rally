@@ -1,6 +1,6 @@
 class Api::V1::MessagesController < ApplicationController
   def index
-    @messages = Message.where(chatroom_id: params[:chatroom_id])
+    @messages = Message.where(group_id: params[:group_id])
     render "index.json.jbuilder"
   end
 
@@ -8,14 +8,14 @@ class Api::V1::MessagesController < ApplicationController
     @message = Message.create(
       body: params[:body],
       user_id: params[:user_id],
-      chatroom_id: params[:chatroom_id]
+      group_id: params[:group_id]
 
     )
     ActionCable.server.broadcast "activity_channel", {
       id: @message.id,
-      name: @message.user.name,
+      name: @message.user.username,
       body: @message.body,
-      chatroom_id: @message.chatroom_id,
+      group_id: @message.group_id,
       created_at: @message.created_at
     }
     render "show.json.jbuilder"

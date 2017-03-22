@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #actioncable
   mount ActionCable.server => "/cable"
     resources :messages, only: [:index, :create]
-  resources :chatrooms, only: [:show, :create]
+
 
 
   # login
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/groups', to: 'groups#index'
   get '/groups/new', to: 'groups#new'
   get '/groups/:id', to: 'groups#show'
+  get '/groups/:id/messages', to: 'groups#messages'
   post '/groups', to: 'groups#create'
   get '/groups/:id/edit', to: 'groups#edit'
   post '/group_member/:id', to: 'groups#add_member'

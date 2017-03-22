@@ -74,7 +74,7 @@
             </a>
             <ul class="dropdown-menu imp-notify">
             <% if current_user %>
-            <% current_user.appointments[0..2].each do |appointment| %>
+            <% current_user.appointments.last(3).each do |appointment| %>
               <li>
 
                 <div class="details">
