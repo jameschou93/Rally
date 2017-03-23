@@ -91,19 +91,20 @@
           <li class="list-box dropdown">
             <a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <span class="info-label">4</span>
-              <i class="icon-paper-clip info-icon text-warning"></i>
+              <i class="icon-paper-plane info-icon text-warning"></i>
             </a>
             <div class="dropdown-menu">
               <section class="todo">
                 <fieldset class="todo-list">
                 <% current_user.groups.each do |group| %>
                   <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb" >
+                    <a href="/groups/<%= group.id%>/messages">
                     <span class="todo-list-mark"></span>
                     <span class="todo-list-desc"><%= group.name %></span>
                   <% if group.messages.last %>
-                  <small class="scheduled"><%= group.messages.last.user.username %>:<%= group.messages.last.body %>></small>
+                  <small class="scheduled"><%= group.messages.last.user.username %>:<%= group.messages.last.body %></small>
                   <% end %>
+                  </a>
                   </label>
                 <% end %>
                 </fieldset>
