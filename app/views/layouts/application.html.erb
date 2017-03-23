@@ -96,36 +96,16 @@
             <div class="dropdown-menu">
               <section class="todo">
                 <fieldset class="todo-list">
+                <% current_user.groups.each do |group| %>
                   <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb">
+                    <input type="checkbox" class="todo-list-cb" >
                     <span class="todo-list-mark"></span>
-                    <span class="todo-list-desc">Design Web App</span>
-                    <small class="scheduled">Scheduled for 24th Dec, Assigned to Shawn.</small>
+                    <span class="todo-list-desc"><%= group.name %></span>
+                  <% if group.messages.last %>
+                  <small class="scheduled"><%= group.messages.last.user.username %>:<%= group.messages.last.body %>></small>
+                  <% end %>
                   </label>
-                  <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb">
-                    <span class="todo-list-mark"></span>
-                    <span class="todo-list-desc">Send all Documents</span>
-                    <small class="scheduled">Scheduled for 24th Dec, Assigned to Leena.</small>
-                  </label>
-                  <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb">
-                    <span class="todo-list-mark"></span>
-                    <span class="todo-list-desc">Buy new Car</span>
-                    <small class="scheduled">Scheduled on 10th Dec, Assigned to Mark.</small>
-                  </label>
-                  <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb" checked>
-                    <span class="todo-list-mark"></span>
-                    <span class="todo-list-desc">Assign new Task</span>
-                    <small class="scheduled">Completed on 5th Dec, Assigned to Robin.</small>
-                  </label>
-                  <label class="todo-list-item">
-                    <input type="checkbox" class="todo-list-cb overdue" checked>
-                    <span class="todo-list-mark"></span>
-                    <span class="todo-list-desc">Read Turning Points</span>
-                    <small class="scheduled">Overdue 12 days, Assigned to Wincy.</small>
-                  </label>
+                <% end %>
                 </fieldset>
               </section>
             </div>
