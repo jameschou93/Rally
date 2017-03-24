@@ -6,10 +6,14 @@
     <button type="button" ng-if="appointment.date === <%= date.to_json %>" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="{{appointment.start_time}}">
         {{appointment.title}}
     </button>
-
-
     </div>
-    <% end %>
-  </div>
 
+    <% end %>
+    <p>Title: <input ng-model="upTitle"></p>
+    <p>Date: <input ng-model="upDate" type="date"></p>
+    <p>Start Time: <input ng-model="upStart" type="time"></p>
+    <p>End Time: <input ng-model="upEnd" type="time"></p>
+    <input type="text" ng-model="appointmentId">
+   <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button>
+  </div>
 </div>

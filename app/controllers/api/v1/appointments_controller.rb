@@ -11,6 +11,19 @@ class Api::V1::AppointmentsController < ApplicationController
     render "myappointments.json.jbuilder"
   end
 
+  def show
+    @appointment = Appointment.find_by(id: params[:id])
+    render 'show.json.jbuilder'
+  end
+
+  def update
+    @appointment = Appointment.find_by(id: params[:id])
+    @appointment.title = params[:title] || @appointment.title
+    @appointment.date = params[:date] || @appointment.date
+    @appointment.start_time = params[:start_time] || @appointment.start_time
+    @appointment.end_time = params[:end_time] || @appointment.end_time
+    render 'show.json.jbuilder'
+  end
   def new
     
   end
