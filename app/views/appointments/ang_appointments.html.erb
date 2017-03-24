@@ -3,13 +3,13 @@
   <%= month_calendar do |date| %>
     <%= date.day %>
     <div ng-repeat="appointment in appointments">
-      <div class="well" ng-if="appointment.date === <%= date.to_json %>">
+    <button type="button" ng-if="appointment.date === <%= date.to_json %>" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="{{appointment.start_time}}">
         {{appointment.title}}
-        
-      </div>
+    </button>
 
 
     </div>
     <% end %>
   </div>
+
 </div>

@@ -98,7 +98,7 @@
                 <fieldset class="todo-list">
                 <% current_user.groups.each do |group| %>
                   <label class="todo-list-item">
-                    <a href="/groups/<%= group.id%>/messages">
+                    <a href="/groups/<%= group.id%>/messages" target="_blank">
                     <span class="todo-list-mark"></span>
                     <span class="todo-list-desc"><%= group.name %></span>
                   <% if group.messages.last %>
@@ -172,7 +172,7 @@
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Appointments <span class="label label-danger">5</span>
+                  Calendar <span class="label label-danger">5</span>
                 </a>
               </h4>
             </div>
@@ -202,7 +202,7 @@
             <div class="panel-heading" role="tab" id="headingThree">
               <h4 class="panel-title">
                 <a class="collapsed" role="button" data-parent="#leftSidebar" href="/map" aria-expanded="false" aria-controls="collapseThree">
-                  Map <span class="label label-success">10</span>
+                  MeetUp Radar <span class="label label-success">10</span>
                 </a>
               </h4>
             </div>

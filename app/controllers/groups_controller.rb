@@ -10,7 +10,9 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
   end
- 
+ def canvas
+   render 'canvas.html.erb'
+ end
   def show
     @group = Group.find_by(id: params[:id])
 

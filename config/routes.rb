@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   delete '/groups/:id', to: 'group#destroy'
   #group angular
     get '/ang_groups', to: 'groups#ang_index'
-
+    get '/canvas', to: 'groups#canvas'
 
   # appointments
   get '/appointments', to:'appointments#index'

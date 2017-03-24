@@ -8,7 +8,6 @@
         console.log(response.data);
         $scope.appointments = response.data;
       });
-
     };
     window.$scope = $scope;
   });
