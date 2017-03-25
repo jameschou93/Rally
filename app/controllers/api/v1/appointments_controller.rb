@@ -1,6 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
   before_action :today
-  before_action :authenticate!
+  before_action :authenticate!, except: :update
   def index
     @appointments = Appointment.all
     render"index.json.jbuilder"
@@ -19,9 +19,10 @@ class Api::V1::AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find_by(id: params[:id])
     @appointment.title = params[:title] || @appointment.title
-    @appointment.date = params[:date] || @appointment.date
-    @appointment.start_time = params[:start_time] || @appointment.start_time
-    @appointment.end_time = params[:end_time] || @appointment.end_time
+    @appointment.date = DateTime.parse(params[:date]).to_date.to_s || @appointment.date
+    @appointment.start_time = Time.parse(params[:start_time]).strftime("%H:%M") || @appointment.start_time
+    @appointment.end_time = Time.parse(params[:end_time]).strftime("%H:%M")  || @appointment.end_time
+    @appointment.save
     render 'show.json.jbuilder'
   end
   def new
@@ -29,6 +30,7 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def create
+    location = Location.create(address: params[:address], city: params[:city], state: params[:state], zip_code: params[:zip_code])
     appointment = Appointment.new(title: params[:title], date: params[:date], start_time: params[:start_time], end_time: params[:end_time], location_id: params[:location].to_i)
 
     if appointment.save
@@ -39,6 +41,6 @@ class Api::V1::AppointmentsController < ApplicationController
     else
       flash[:error] = "#{appointment.errors.full_messages}"
     end
-    redirect_to "/appointments"
+    redirect_to "/appointments/#{appointment.id}"
   end
 end

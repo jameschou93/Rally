@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require angular
+//= require ng-popover
 //= require angular-calendar
 //= require app
 //= require_tree .

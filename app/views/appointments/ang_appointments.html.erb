@@ -3,17 +3,24 @@
   <%= month_calendar do |date| %>
     <%= date.day %>
     <div ng-repeat="appointment in appointments">
-    <button type="button" ng-if="appointment.date === <%= date.to_json %>" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="{{appointment.start_time}}">
+
+    <span class="ng-popover-trigger" id="normal-text-popover" ng-if="appointment.date === <%= date.to_json %>" >
         {{appointment.title}}
-    </button>
+    </span>
+
     </div>
 
     <% end %>
+    <ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left">
+    </ng-popover>
+
     <p>Title: <input ng-model="upTitle"></p>
     <p>Date: <input ng-model="upDate" type="date"></p>
     <p>Start Time: <input ng-model="upStart" type="time"></p>
     <p>End Time: <input ng-model="upEnd" type="time"></p>
     <input type="text" ng-model="appointmentId">
-   <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button>
+   <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button> 
+   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button>
+
   </div>
 </div>
