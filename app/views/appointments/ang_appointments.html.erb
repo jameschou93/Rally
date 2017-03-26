@@ -18,21 +18,24 @@
   <p>{{selectedAppt.address}}</p>
   <p>{{selectedAppt.city}}</p>
   <p>{{selectedAppt.state}}</p>
+  <p>{{selectedAppt.id}}</p>
   </div>
- <!--  <button angular-popover template="Some content inside the popover">
+  <button ng-click="reveal()">
       Hello
     </button>
-    <p>Title: <input ng-model="upTitle"></p>
-    <p>Date: <input ng-model="upDate" type="date"></p>
-    <p>Start Time: <input ng-model="upStart" type="time"></p>
-    <p>End Time: <input ng-model="upEnd" type="time"></p>
-    <p>Address: <input ng-model="address" type="text"></p>
-    <p>City: <input ng-model="city" type="text"></p>
-    <p>State: <input ng-model="state" type="text"></p>
-    <p>Zip Code: <input ng-model="zip_code" type="number"></p>
+  <div id="models" style="visibility: hidden;">
+    <p>Title: <input ng-model="selectedAppt.title" type="text"></p>
+    <p>Date: <input ng-model="selectedDate" type="date" ></p>
+    <p>Start Time: <input ng-model="selectedAppt.start_time" type="time"></p>
+    <p>End Time: <input ng-model="selectedAppt.end_time" type="time"></p>
+    <p>Address: <input ng-model="selectedAppt.address" type="text"></p>
+    <p>City: <input ng-model="selectedAppt.city" type="text"></p>
+    <p>State: <input ng-model="selectedAppt.state" type="text"></p>
+    <p>Zip Code: <input value="selectedAppt.zip_code" type="number"></p>
     <input type="text" ng-model="appointmentId">
-   <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button> 
-   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button> -->
+  </div>
+   <button ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)">Update</button> 
+   <button id="create" style="visibility: hidden;" ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button>
 
   </div>
 </div>

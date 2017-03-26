@@ -44,9 +44,18 @@
         $scope.errors = error.data.errors;
       });
     };
-
+    $scope.reveal = function() {
+      document.getElementById("models").style.visibility = "visible";
+    };
     $scope.show = function(appointment) {
       $scope.selectedAppt = appointment;
+      var date = new Date(appointment.date);
+      console.log(appointment.date);
+      console.log("date is " + date);
+      $scope.selectedDate = date;
+      console.log($scope.selectedDate);
+
+
       document.getElementById("show").style.visibility = "visible";
     };
     window.$scope = $scope;
