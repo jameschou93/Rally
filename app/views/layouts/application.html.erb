@@ -96,6 +96,7 @@
             <div class="dropdown-menu">
               <section class="todo">
                 <fieldset class="todo-list">
+                <% if current_user %>
                 <% current_user.groups.each do |group| %>
                   <label class="todo-list-item">
                     <a href="/groups/<%= group.id%>/messages" target="_blank">
@@ -106,6 +107,7 @@
                   <% end %>
                   </a>
                   </label>
+                <% end %>
                 <% end %>
                 </fieldset>
               </section>

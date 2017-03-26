@@ -50,12 +50,9 @@
     $scope.show = function(appointment) {
       $scope.selectedAppt = appointment;
       var date = new Date(appointment.date);
-      console.log(appointment.date);
-      console.log("date is " + date);
-      $scope.selectedDate = date;
+      $scope.selectedDate = new Date(date.setDate(date.getDate() + 1));
+      $scope.selectStart = 1378409640;
       console.log($scope.selectedDate);
-
-
       document.getElementById("show").style.visibility = "visible";
     };
     window.$scope = $scope;
