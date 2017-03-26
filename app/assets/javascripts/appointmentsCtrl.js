@@ -45,6 +45,10 @@
       });
     };
 
+    $scope.show = function(appointment) {
+      $scope.selectedAppt = appointment;
+      document.getElementById("show").style.visibility = "visible";
+    };
     window.$scope = $scope;
   });
 }());

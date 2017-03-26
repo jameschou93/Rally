@@ -29,14 +29,13 @@
         $scope.appointments.forEach(function(appointment) {
           var coords = { lat: appointment.latitude, lng: appointment.longitude };         
           // if appointment date is on filter date then show marker
-          $scope.markers = [];
+
           if (appointment.date === mydate) {
             var marker = new google.maps.Marker({
               position: coords,
               map: map,
               title: appointment.title
             });
-            $scope.markers.push(marker);
             var info = new google.maps.InfoWindow({
               content: appointment.title,           
             });
@@ -44,8 +43,6 @@
             marker.addListener('click', function() {
               info.open(map, marker);
             });  
-
-            var markerCluster = new MarkerClusterer(map, $scope.markers, {imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
           }
         });
 

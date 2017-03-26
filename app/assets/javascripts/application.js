@@ -11,10 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require angular
-//= require ng-popover
-//= require angular-calendar
+//= require angular-popover
 //= require app
 //= require_tree .

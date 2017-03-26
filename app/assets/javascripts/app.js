@@ -1,6 +1,6 @@
 (function() {
   "use strict";
 
-  angular.module("app", ['ngPopover']);
+  angular.module("app", ['angular-popover']);
 
 }());

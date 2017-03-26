@@ -3,17 +3,25 @@
   <%= month_calendar do |date| %>
     <%= date.day %>
     <div ng-repeat="appointment in appointments">
-
-    <span class="ng-popover-trigger" id="normal-text-popover" ng-if="appointment.date === <%= date.to_json %>" >
-        {{appointment.title}}
-    </span>
+    <button angular-popover template="Some content inside the popover" class="btn btn-primary" ng-if="appointment.date === <%= date.to_json %>">
+        <p ng-click="show(appointment)">{{appointment.title}}</p>
+    </button>
 
     </div>
 
     <% end %>
-    <ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left">
-    </ng-popover>
-
+  <div id="show" class="well" style="visibility: hidden;">
+  <p>{{selectedAppt.title}}</p>
+  <p>{{selectedAppt.date}}</p>
+  <p>{{selectedAppt.start_time}}</p>
+  <p>{{selectedAppt.end_time}}</p>
+  <p>{{selectedAppt.address}}</p>
+  <p>{{selectedAppt.city}}</p>
+  <p>{{selectedAppt.state}}</p>
+  </div>
+ <!--  <button angular-popover template="Some content inside the popover">
+      Hello
+    </button>
     <p>Title: <input ng-model="upTitle"></p>
     <p>Date: <input ng-model="upDate" type="date"></p>
     <p>Start Time: <input ng-model="upStart" type="time"></p>
@@ -24,7 +32,7 @@
     <p>Zip Code: <input ng-model="zip_code" type="number"></p>
     <input type="text" ng-model="appointmentId">
    <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button> 
-   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button>
+   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button> -->
 
   </div>
 </div>
