@@ -27,14 +27,13 @@
         $scope.errors = error.data.errors;
       });
     };
-    $scope.createAppt = function(upTitle, upDate, upStart, upEnd, appointment) {
-      console.log(appointment);
-      var params = {title: upTitle, date: upDate, start_time:  upStart, end_time: upEnd};
-      var url = "/api/v1/appointments/" + appointment;
+    $scope.createAppt = function(upTitle, upDate, upStart, upEnd, address, city, state, zip_code) {
+      var params = {title: upTitle, date: upDate, start_time:  upStart, end_time: upEnd, address: address, city: city, state: state, zip_code: zip_code  };
+      var url = "/api/v1/appointments";
       console.log(url);
       $http.post(url, params).then(function(response) {
-        var index = $scope.appointments.indexOf(appointment);
-        $scope.appointments[index] = response.data;
+        // var index = $scope.appointments.indexOf(appointment);
+        // $scope.appointments[index] = response.data;
         $scope.upEnd = null;
         $scope.upStart = null;
         $scope.upDate = null;

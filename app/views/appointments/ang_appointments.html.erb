@@ -18,9 +18,13 @@
     <p>Date: <input ng-model="upDate" type="date"></p>
     <p>Start Time: <input ng-model="upStart" type="time"></p>
     <p>End Time: <input ng-model="upEnd" type="time"></p>
+    <p>Address: <input ng-model="address" type="text"></p>
+    <p>City: <input ng-model="city" type="text"></p>
+    <p>State: <input ng-model="state" type="text"></p>
+    <p>Zip Code: <input ng-model="zip_code" type="number"></p>
     <input type="text" ng-model="appointmentId">
    <button ng-click="updateAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button> 
-   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, appointmentId)">Update</button>
+   <button ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button>
 
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
   before_action :today
-  before_action :authenticate!, except: :update
+  before_action :authenticate!, except: [:create, :update]
   def index
     @appointments = Appointment.all
     render"index.json.jbuilder"
@@ -30,17 +30,24 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def create
-    location = Location.create(address: params[:address], city: params[:city], state: params[:state], zip_code: params[:zip_code])
-    appointment = Appointment.new(title: params[:title], date: params[:date], start_time: params[:start_time], end_time: params[:end_time], location_id: params[:location].to_i)
+    location = Location.create(address: params[:address], 
+                               city: params[:city], 
+                               state: params[:state], 
+                               zip_code: params[:zip_code])
+    appointment = Appointment.new(title: params[:title],
+                                  date: DateTime.parse(params[:date]).to_date, 
+                                  start_time: Time.parse(params[:start_time]).strftime("%H:%M"), 
+                                  end_time: Time.parse(params[:end_time]).strftime("%H:%M"), 
+                                  location_id: location.id)
 
     if appointment.save
-    invitees = params[:user_ids]
-      invitees.each do |invitee|
-        UserAppointment.create(appointment_id: appointment.id, user_id: invitee.to_i)
-      end
+      invitees = params[:user_ids]
+        invitees.each do |invitee|
+          UserAppointment.create(appointment_id: appointment.id, user_id: invitee.to_i)
+        end
+        render '/api/v1/appointments/#appointment.id'
     else
-      flash[:error] = "#{appointment.errors.full_messages}"
+      render json: {errors: "#{appointment.errors.full_messages}"}
     end
-    redirect_to "/appointments/#{appointment.id}"
   end
 end

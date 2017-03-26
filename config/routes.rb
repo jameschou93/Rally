@@ -45,7 +45,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create]
       get '/groups', to: 'groups#index'
       get '/appointments', to:'appointments#index'
-      get 'appointments', to: 'appointments#create'
+      post '/appointments', to: 'appointments#create'
       get '/appointments/:id', to: 'appointments#show'
       get '/myappointments', to:'appointments#myappointments'
       get '/users', to:'users#index'
