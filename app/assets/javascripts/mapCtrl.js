@@ -26,6 +26,7 @@
         var month = ($scope.dateFilter.getUTCMonth() + 1).toString();
         var date = $scope.dateFilter.getUTCDate().toString();
         var mydate = year + "-" + '0' + month + "-" + date;
+        var markers = [];
         $scope.appointments.forEach(function(appointment) {
           var coords = { lat: appointment.latitude, lng: appointment.longitude };         
           // if appointment date is on filter date then show marker
@@ -36,10 +37,13 @@
               map: map,
               title: appointment.title
             });
+            markers.push(coords);
             var info = new google.maps.InfoWindow({
               content: appointment.title,           
             });
-            
+            var mcOptions = {gridSize: 50, maxZoom: 15, imagePath: 'images/m'};
+            var mc = new google.maps.MarkerClusterer(map, markers, mcOptions);
+
             marker.addListener('click', function() {
               info.open(map, marker);
             });  
