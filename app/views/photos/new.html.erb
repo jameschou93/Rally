@@ -1,0 +1,17 @@
+new.html.erb
+<h1>Upload Photo</h1>
+
+<%= form_tag "/photos", method: :post, multipart: true do %>
+
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+
+  <div>
+    <%= label_tag :image %>
+    <%= file_field_tag :image %>
+  </div>
+
+  <%= submit_tag 'Upload' %>
+<% end %>

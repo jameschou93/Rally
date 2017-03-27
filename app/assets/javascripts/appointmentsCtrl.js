@@ -46,6 +46,7 @@
     };
     $scope.reveal = function() {
       document.getElementById("models").style.visibility = "visible";
+
     };
     $scope.show = function(appointment) {
       $scope.selectedAppt = appointment;

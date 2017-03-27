@@ -10,23 +10,9 @@
     </div>
 
     <% end %>
-  <div id="show" class="well" style="visibility: hidden;">
-  <p>{{selectedAppt.title}}</p>
-  <p>{{selectedAppt.date}}</p>
-  <p>{{selectedAppt.start_time}}</p>
-  <p>{{selectedAppt.end_time}}</p>
-  <p>{{selectedAppt.address}}</p>
-  <p>{{selectedAppt.city}}</p>
-  <p>{{selectedAppt.state}}</p>
-  <p>{{selectedAppt.id}}</p>
-  </div>
-  <button ng-click="reveal()">
-      Hello
-    </button>
+
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -34,36 +20,38 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h1 class="modal-title" id="myModalLabel">{{selectedAppt.title}}</h1>
+        <span><button ng-click="reveal()" ><i class="icon-pencil info-icon text-warning">Edit</i></button></span>
       </div>
       <div class="modal-body">
-        <p>{{selectedAppt.title}}</p>
+      <div id="show">
         <p>{{selectedAppt.date}}</p>
         <p>{{selectedAppt.start_time}}</p>
         <p>{{selectedAppt.end_time}}</p>
         <p>{{selectedAppt.address}}</p>
         <p>{{selectedAppt.city}}</p>
         <p>{{selectedAppt.state}}</p>
-        <p>{{selectedAppt.id}}</p>
+        <p>{{selectedAppt.zip_code}}</p>    
+      </div>
+        <div id="models" style="visibility: hidden;">
+          <p>Title: <input ng-model="selectedAppt.title" type="text"></p>
+          <p>Date: <input ng-model="selectedDate" type="date" ></p>
+          <p>Start Time: <input ng-model="selectStart" type="time"></p>
+          <p>End Time: <input ng-model="selectedAppt.end_time" type="time"></p>
+          <p>Address: <input ng-model="selectedAppt.address" type="text"></p>
+          <p>City: <input ng-model="selectedAppt.city" type="text"></p>
+          <p>State: <input ng-model="selectedAppt.state" type="text"></p>
+          <p>Zip Code: <input value="selectedAppt.zip_code" type="number"></p>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
       </div>
     </div>
   </div>
 </div>
-  <div id="models" style="visibility: hidden;">
-    <p>Title: <input ng-model="selectedAppt.title" type="text"></p>
-    <p>Date: <input ng-model="selectedDate" type="date" ></p>
-    <p>Start Time: <input ng-model="selectStart" type="time"></p>
-    <p>End Time: <input ng-model="selectedAppt.end_time" type="time"></p>
-    <p>Address: <input ng-model="selectedAppt.address" type="text"></p>
-    <p>City: <input ng-model="selectedAppt.city" type="text"></p>
-    <p>State: <input ng-model="selectedAppt.state" type="text"></p>
-    <p>Zip Code: <input value="selectedAppt.zip_code" type="number"></p>
-    <input type="text" ng-model="appointmentId">
-  </div>
+</div>
    <button ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)">Update</button> 
    <button id="create" style="visibility: hidden;" ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button>
 

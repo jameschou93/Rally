@@ -156,10 +156,12 @@
     <div class="left-sidebar">
 
         <!-- User wrapper starts -->
-        <a href="profile.html" class="user-wrapper clearfix">
+        <% if current_user %>
+        <a href="/mygroups" class="user-wrapper clearfix">
           <div class="user-avatar">
-            <img src="/img/user2.png" alt="StartUp User">
+            <%= image_tag(@photos.first.image.url) %>
           </div>
+          <% end %>
           <div class="profile-status">
             <p class="welcome">Welcome</p>
             <% if current_user %>

@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   # signup
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-
+  # photo
+  get '/photos', to: 'photos#index'
+  get '/photos/new', to: 'photos#new'
+  post '/photos', to: 'photos#create'
   #group
   get '/mygroups', to: 'groups#mygroups'
   get '/groups', to: 'groups#index'
