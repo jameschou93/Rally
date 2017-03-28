@@ -7,7 +7,12 @@
       $http.get("/api/v1/myappointments.json").then(function(response) {
         console.log(response.data);
         $scope.appointments = response.data;
+        $http.get("/api/v1/users.json").then(function(response) {
+          console.log(response.data);
+          $scope.users = response.data;
+        });
       });
+
     };
     $scope.updateAppt = function(upTitle, upDate, upStart, upEnd, appointment) {
       console.log(appointment);
@@ -27,10 +32,15 @@
         $scope.errors = error.data.errors;
       });
     };
-    $scope.createAppt = function(upTitle, upDate, upStart, upEnd, address, city, state, zip_code) {
-      var params = {title: upTitle, date: upDate, start_time:  upStart, end_time: upEnd, address: address, city: city, state: state, zip_code: zip_code  };
+
+    $scope.createAppt = function(title, date, start_time, end_time, address, city, state, zip_code) {
+      var params = {title: title, date: date, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code  };
       var url = "/api/v1/appointments";
-      console.log(url);
+      $scope.todayDate = new Date();
+      $scope.members = [];
+      $scope.invite = function(member) {
+        $scope.members.push(member);
+      };
       $http.post(url, params).then(function(response) {
         // var index = $scope.appointments.indexOf(appointment);
         // $scope.appointments[index] = response.data;

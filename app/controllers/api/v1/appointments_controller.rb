@@ -39,7 +39,6 @@ class Api::V1::AppointmentsController < ApplicationController
                                   start_time: Time.parse(params[:start_time]).strftime("%H:%M"), 
                                   end_time: Time.parse(params[:end_time]).strftime("%H:%M"), 
                                   location_id: location.id)
-
     if appointment.save
       invitees = params[:user_ids]
         invitees.each do |invitee|

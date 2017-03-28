@@ -1,5 +1,8 @@
 <div ng-app="app">
   <div ng-controller="appointmentsCtrl" ng-init="setup()">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createModal">
+        New Appointment
+    </button>
   <%= month_calendar do |date| %>
     <%= date.day %>
     <div ng-repeat="appointment in appointments">
@@ -41,19 +44,53 @@
           <p>Address: <input ng-model="selectedAppt.address" type="text"></p>
           <p>City: <input ng-model="selectedAppt.city" type="text"></p>
           <p>State: <input ng-model="selectedAppt.state" type="text"></p>
-          <p>Zip Code: <input value="selectedAppt.zip_code" type="number"></p>
+          <p>Zip Code: <input ng-model="selectedAppt.zip_code" type="number"></p>
         </div>
+         <button ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)">Update</button> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" >Save changes</button>
+        <button type="button" class="btn btn-primary" >Edit</button>
       </div>
     </div>
   </div>
 </div>
-</div>
-   <button ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)">Update</button> 
-   <button id="create" style="visibility: hidden;" ng-click="createAppt(upTitle, upDate, upStart, upEnd, address, city, state, zip_code)">Create</button>
 
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="myModalLabel">New Appointment</h1>
+      </div>
+      <div class="modal-body">
+        <div id="models">
+          <p>Title: <input ng-model="title" type="text"></p>
+          <p>Date: <input ng-model="todayDate" type="date" ></p>
+          <p>Start Time: <input ng-model="start_time" type="time"></p>
+          <p>End Time: <input ng-model="end_time" type="time"></p>
+          <p>Address: <input ng-model="address" type="text"></p>
+          <p>City: <input ng-model="city" type="text"></p>
+          <p>State: <input ng-model="state" type="text"></p>
+          <p>Zip Code: <input ng-model="zip_code" type="number"></p>
+          <p>Invitees: <label ng-repeat="user in users"><input ng-model="member" type="checkbox"     ng-checked="user.id > 1000"
+          ng-click="invite(user)">{{user.email}}</label></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" ng-click="createAppt(title, date, start_time, end_time, address, city, state, zip_code, members)" class="btn btn-primary">Save Appointment</button>
+      </div>
+    </div>
   </div>
+</div>
+
+
+  
+
+  <!-- end of controller -->
+  </div>
+  <!-- end of ng-app -->
 </div>

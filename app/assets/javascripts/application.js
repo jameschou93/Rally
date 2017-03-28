@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-ui-bootstrap
 //= require angular-popover
 //= require app
 //= require_tree .
