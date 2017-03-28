@@ -6,9 +6,9 @@
     $http.get("/api/v1/groups.json").then(function(response) {
       console.log(response.data);
       $scope.groups = response.data;
-    
     });
-
+  $scope.totalItems = 64;
+  $scope.currentPage = 4;
     $scope.categories = ["education", "food", "technology", "fitness", "crafts", "fashion","exercise", "health", "alcohol", "carpentry", "astrology"];
 
     

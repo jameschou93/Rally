@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
 
     def photos
-      @photos = current_user.photos unless current_user === nil || current_user.photos === nil
+      if current_user === nil
+      @photos = current_user.photos
+      else
+      @photos = Photo.all
+      end 
     end
 
     def authenticate!

@@ -3,11 +3,13 @@
     <div ng-controller="groupsCtrl">
       Search: <input ng-model=" inputName">
       <div class="well" ng-repeat="group in groups | filter:{name: inputName}">
-         <a href="/groups/{{group.id}}"><p><h2>{{group.name}}</h2></a></p>
+         <a href="/groups/{{group.id}}"><p><h2><button class="groupheader">{{group.name}}</button></h2></a></p>
            <p>{{group.bio}}</p>
-           <h3>Categories</h2>
+           <h3>Categories</h3>
            <p ng-repeat="category in group.categories"> 
            {{category.name}}</p>
+
       </div>
+
     </div>
   </div>
