@@ -1,3 +1,5 @@
+
+
 <h1><%= @group.name %></h1>
 <% if current_user %>
   <%= form_tag "/group_member/#{@group.id}", method: :post do %>
@@ -15,11 +17,19 @@
 <% end %>
 
 <br>
-
-<h2>Members</h2>
-<% @group.users.each do |user| %>
-<p>First Name <%= user.first_name %></p>
-<p>Last Name <%= user.last_name %></p>
-<p>Email <%= user.email %></p>
-<br>
-<% end %>
+<div>
+  <h2>Members</h2>
+  <% @group.users.each do |user| %>
+    <% if user.photos.first %>
+    <md-tooltip>
+        <span class="profile-pic" data-toggle="tooltip"  data-original-title="Tooltip on bottom" alt="Profile Picture">
+        <%= image_tag(user.photos.first.image.url) %>
+        </span>
+    </md-tooltip>
+      <% else %>
+        <span class="profile-pic" alt="Profile Picture">
+        <%= image_tag(@photos.first.image.url) %>
+        </span>
+    <% end %>
+  <% end %>
+</div>

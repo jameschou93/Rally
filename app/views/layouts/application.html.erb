@@ -16,7 +16,7 @@
 
     <!-- Main CSS -->
     <link href="/css/main.css" rel="stylesheet" id="themeSwitcher" />
-
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- Icomoon Icons CSS -->
     <link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
 
@@ -59,7 +59,7 @@
   <body class="login">
       <header class="clearfix">
       <!-- Logo starts -->
-
+      <h2 class="logo">Rally<i class="icon-flag flag"></i></h2>
       <!-- Logo ends -->
 
       <!-- Header actions starts -->
@@ -98,7 +98,7 @@
                 <% current_user.groups.each do |group| %>
                   <label class="todo-list-item">
                     <a href="/groups/<%= group.id%>/messages" target="_blank">
-                    <span class="todo-list-mark"></span>
+                    
                     <span class="todo-list-desc"><%= group.name %></span>
                   <% if group.messages.last %>
                   <small class="scheduled"><%= group.messages.last.user.username %>:<%= group.messages.last.body %></small>
@@ -174,7 +174,8 @@
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Calendar <span class="label label-danger">5</span>
+                  Calendar 
+                  <!-- <span class="label label-danger">5</span> -->
                 </a>
               </h4>
             </div>
@@ -188,8 +189,8 @@
             <div class="panel-heading" role="tab" id="headingTwo">
               <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#leftSidebar" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  Groups <span class="label label-warning">35</span>
-                </a>
+                  Groups <!-- <span class="label label-warning">35</span>
+ -->                </a>
               </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
@@ -204,7 +205,7 @@
             <div class="panel-heading" role="tab" id="headingThree">
               <h4 class="panel-title">
                 <a class="collapsed" role="button" data-parent="#leftSidebar" href="/map" aria-expanded="false" aria-controls="collapseThree">
-                  MeetUp Radar <span class="label label-success">10</span>
+                  MeetUp Radar <!-- <span class="label label-success">10</span> -->
                 </a>
               </h4>
             </div>

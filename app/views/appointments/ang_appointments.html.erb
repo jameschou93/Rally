@@ -29,12 +29,14 @@
       <div class="modal-body">
       <div id="show">
         <p>{{selectedAppt.date}}</p>
-        <p>{{selectedAppt.start_time}}</p>
-        <p>{{selectedAppt.end_time}}</p>
+        <p>{{selectedAppt.start_time}} -
+        {{selectedAppt.end_time}}</p>
+        <hr>
         <p>{{selectedAppt.address}}</p>
         <p>{{selectedAppt.city}}</p>
         <p>{{selectedAppt.state}}</p>
         <p>{{selectedAppt.zip_code}}</p>    
+        <hr>
       </div>
         <div id="models" style="visibility: hidden;">
           <p>Title: <input ng-model="selectedAppt.title" type="text"></p>

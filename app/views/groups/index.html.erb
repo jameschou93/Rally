@@ -1,13 +1,17 @@
-<h1>Group Directory</h1> 
+<h1 class="heading">Group Directory</h1> 
   <div ng-app="app">
     <div ng-controller="groupsCtrl">
-      Search: <input ng-model=" inputName">
-      <div class="well" ng-repeat="group in groups | filter:{name: inputName}">
+      <input class="search" placeholder="Search Groups" ng-model=" inputName">
+  
+      <br>
+      <div class="col-sm-4 well group" ng-repeat="group in groups | filter:{name: inputName}">
+           <small>{{group.members.length}} Members</small>
          <a href="/groups/{{group.id}}"><p><h2><button class="groupheader">{{group.name}}</button></h2></a></p>
-           <p>{{group.bio}}</p>
-           <h3>Categories</h3>
-           <p ng-repeat="category in group.categories"> 
-           {{category.name}}</p>
+           <em>{{group.bio}}</em>
+<br>
+           <span class="well cats" ng-repeat="category in group.categories"> 
+           {{category.name}}</span>
+           <br>
 
       </div>
 

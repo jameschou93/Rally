@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
 
     def photos
-      if current_user === nil
+      if current_user && current_user.photos.any?
       @photos = current_user.photos
       else
       @photos = Photo.all

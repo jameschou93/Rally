@@ -457,6 +457,10 @@ header {
 		@include border-radius-all-val(3px, 3px, 0, 0);
 	}
 }
+.aaa {
+	    width: 10%;
+    height: 10%;
+}
 // Logo
 .logo {
 	margin: 17px 0;
@@ -919,7 +923,7 @@ a.support {
 .main-container {
 	position: relative;
 	padding: 20px;
-	min-height: 700px;
+	height: 10000000px;
 	background: $sky-blue;
 }
 
@@ -930,13 +934,15 @@ a.support {
 	margin: 0 0 8px 0;
 	.user-avatar {
 		float: left;
+		border-radius: 100px;
 		text-align: center;
 		img {
-			max-width: 48px;
-			max-height: 48px;
+			max-width: 100px;
+			max-height: 100px;
 			@include border-radius(4px);
 			border: 2px solid $blue;
 		}
+
 	}
 	.profile-status {
 		margin: 17px 0 0 60px;
@@ -1697,6 +1703,7 @@ ul.contributions {
 		}
 	}
 	.todo-list-desc {
+		font-size: 30px;
 		font-weight: 600;
 		margin-left: 30px;
 		display: block;
@@ -4232,7 +4239,10 @@ input[type=checkbox], input[type=radio] {
 	padding-right: 8px;
 	padding-left: 8px;
 }
-
+		.profile-picture {
+      width:300px; /* you can use % */
+    height: 300px;
+}
 
 // Version 2 ********************************************* /
 

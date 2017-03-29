@@ -681,6 +681,7 @@ a.support {
 .main-container {
   position: relative;
   padding: 20px;
+  height: 10000000px;
   min-height: 700px;
   background: #f5f8fb; }
 
@@ -692,8 +693,8 @@ a.support {
     float: left;
     text-align: center; }
     .user-wrapper .user-avatar img {
-      max-width: 48px;
-      max-height: 48px;
+      max-width: 100px;
+      max-height: 100px;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       border-radius: 4px;
@@ -3745,5 +3746,7 @@ input[type=checkbox], input[type=radio] {
         font-size: 32px; }
     .panel-sortable .panel .panel-body {
       min-height: 100px; }
+
+      /* my styling*/
 
 /*# sourceMappingURL=main.css.map */
