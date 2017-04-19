@@ -4,7 +4,7 @@
       <input class="search" placeholder="Search Groups" ng-model=" inputName">
   
       <br>
-      <div class="col-sm-4 well group" ng-repeat="group in groups | filter:{name: inputName}">
+      <div class="col-sm-4 well groupgrid" ng-repeat="group in groups | filter:{name: inputName}">
            <small>{{group.members.length}} Members</small>
          <a href="/groups/{{group.id}}"><p><h2><button class="groupheader">{{group.name}}</button></h2></a></p>
            <em>{{group.bio}}</em>

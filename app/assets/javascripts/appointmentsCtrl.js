@@ -33,11 +33,11 @@
       });
     };
 
-    $scope.createAppt = function(title, date, start_time, end_time, address, city, state, zip_code) {
-      var params = {title: title, date: date, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code  };
+    $scope.createAppt = function(title, date, start_time, end_time, address, city, state, zip_code, members) {
+      var params = {title: title, date: date, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code, members: members};
       var url = "/api/v1/appointments";
       $scope.todayDate = new Date();
-      $scope.members = [];
+      $scope.members = [1,2,3,4];
       $scope.invite = function(member) {
         $scope.members.push(member);
       };
@@ -66,7 +66,7 @@
       console.log($scope.selectedDate);
       document.getElementById("show").style.visibility = "visible";
     };
-    window.$scope = $scope;
+    window.scope = $scope;
   });
 }());
 
