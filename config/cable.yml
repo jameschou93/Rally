@@ -6,4 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis_url
+  url: ENV["REDISTOGO_URL"]
