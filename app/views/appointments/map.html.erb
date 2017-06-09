@@ -13,9 +13,11 @@
     <input type="date" name="dateFilter" ng-model="dateFilter" value={{date}}>
     <button ng-click="mapIndex()">Search</button>
         <div id="map">
-          <script
+<!--           <script
           src="https://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}">
-          </script>
+          </script> -->
+           <script async defer src="https://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}&callback=initMap"
+  type="text/javascript"></script>
         </div>
       </div>
     </div>
