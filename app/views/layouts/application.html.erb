@@ -149,9 +149,11 @@
         <!-- User wrapper starts -->
         <% if current_user %>
         <a href="/mygroups" class="user-wrapper clearfix">
+          <% if @photos.first  %>
           <div class="user-avatar">
             <%= image_tag(@photos.first.image.url) %>
           </div>
+          <% end %>
           <% end %>
           <div class="profile-status">
             <p class="welcome">Welcome</p>
