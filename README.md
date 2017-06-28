@@ -1,24 +1,10 @@
-# README
+# RALLY 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rally is my answer to the issue of finding a meetup spot/venue to meet with your teammates, friends, and colleagues. The app allows users to join or create groups, setup appointments and events, and find a location to meet up in real-time by viewing a map with all events occuring on the same date appearing as a 'rally-point'. 
 
-Things you may want to cover:
+Other features include:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Personal Calendar
+Group Look-up
+Group Messaging
+Calendar Notifications
