@@ -33,8 +33,8 @@
       });
     };
 
-    $scope.createAppt = function(title, date, start_time, end_time, address, city, state, zip_code) {
-      var params = {title: title, date: date, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code};
+    $scope.createAppt = function(title, todayDate, start_time, end_time, address, city, state, zip_code) {
+      var params = {title: title, date: todayDate, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code};
       var url = "/api/v1/appointments";
       $scope.todayDate = new Date();
       $scope.members = [];
