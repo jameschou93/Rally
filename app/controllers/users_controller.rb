@@ -12,6 +12,7 @@ class UsersController < ApplicationController
                        username: params[:username])
     if user.save
       flash[:success] = "New User Created"
+      session[:user_id] = user.id
     redirect_to "/login"
     elsif user.errors.any?
       flash[:error]= "#{user.errors.full_messages.first}"

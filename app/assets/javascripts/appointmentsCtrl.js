@@ -37,7 +37,7 @@
       var params = {title: title, date: todayDate, start_time:  start_time, end_time: end_time, address: address, city: city, state: state, zip_code: zip_code};
       var url = "/api/v1/appointments";
       $scope.todayDate = new Date();
-      $scope.members = [];
+      $scope.members = [1,2,3,4];
       $scope.invite = function(member) {
         $scope.members.push(member);
       };
@@ -66,7 +66,7 @@
       console.log($scope.selectedDate);
       document.getElementById("show").style.visibility = "visible";
     };
-    window.$scope = $scope;
+    window.scope = $scope;
   });
 }());
 

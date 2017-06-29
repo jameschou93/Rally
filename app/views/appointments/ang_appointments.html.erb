@@ -48,11 +48,11 @@
           <p>State: <input ng-model="selectedAppt.state" type="text"></p>
           <p>Zip Code: <input ng-model="selectedAppt.zip_code" type="number"></p>
         </div>
-         <button ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)">Update</button> 
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" >Edit</button>
+        <button type="button" class="btn btn-primary" ng-click="updateAppt(selectedAppt.title, selectedAppt.date, selectedAppt.start_time, selectedAppt.end_time, selectedAppt.id)" data-dismiss="modal">Edit</button>
       </div>
     </div>
   </div>
@@ -77,13 +77,13 @@
           <p>City: <input ng-model="city" type="text"></p>
           <p>State: <input ng-model="state" type="text"></p>
           <p>Zip Code: <input ng-model="zip_code" type="number"></p>
-          <p>Invitees: <label ng-repeat="user in users"><input ng-model="member" type="checkbox"     ng-checked="user.id > 1000"
+          <p>Invitees: <label ng-repeat="user in users"><input ng-model="members" type="checkbox"     ng-checked="user.id > 1000"
           ng-click="invite(user)">{{user.email}}</label></p>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" ng-click="createAppt(title, todayDate, start_time, end_time, address, city, state, zip_code, members)" class="btn btn-primary">Save Appointment</button>
+        <button type="button" data-dismiss="modal" ng-click="createAppt(title, todayDate, start_time, end_time, address, city, state, zip_code, members)" class="btn btn-primary">Save Appointment</button>
       </div>
     </div>
   </div>
