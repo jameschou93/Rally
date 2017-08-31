@@ -23,4 +23,4 @@ Calendar Notifications
 # Screen Shots
 
 The group directory allows users to find groups related to their own interests or professional backgrounds based on keyword searches and categories
-![Group Directory](/assets/images/group_directory.png?raw=true "")
+![alt text](/assets/images/group_directory.png)
